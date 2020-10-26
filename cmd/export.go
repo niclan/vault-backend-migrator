@@ -61,6 +61,8 @@ func Export(path, file, metad, ver string) error {
 		for k, v := range kvs {
 			if str, ok := v.(string); ok {
 				pairs = append(pairs, Pair{Key: k, Value: str})
+			} else {
+				fmt.Printf("Dropped k=%s v=%s", k, v)
 			}
 		}
 		items = append(items, Item{Path: p, Pairs: pairs})
