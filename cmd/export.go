@@ -62,7 +62,7 @@ func Export(path, file, metad, ver string) error {
 			if str, ok := v.(string); ok {
 				pairs = append(pairs, Pair{Key: k, Value: str})
 			} else {
-				fmt.Printf("Dropped k=%s v=%s", k, v)
+				fmt.Printf("Dropped k=%s v=%s\n", k, v)
 			}
 		}
 		items = append(items, Item{Path: p, Pairs: pairs})
