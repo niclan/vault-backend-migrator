@@ -34,7 +34,7 @@ func main() {
 	flag.Parse()
 	
 	if to != nil && *to != "" {
-		i, err := strconv.Atoi(to)
+		i, err := strconv.Atoi(*to)
 		if err != nil {
 			fmt.Println(err)
 			os.Exit(1)
