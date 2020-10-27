@@ -82,7 +82,7 @@ func (v *Vault) Read(path string) map[string]interface{} {
 		case string:
 			out[k] = base64.StdEncoding.EncodeToString([]byte(t))
 		case json.Number:
-			out[k] = v.string
+			out[k] = []byte(t)
 		case map[string]interface{}:
 			if k == "data" {
 				for x, y := range t {
