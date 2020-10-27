@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"strconv"
 
 	// This is the http client the Vault API library uses
 	"golang.org/x/net/http2"
