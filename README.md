@@ -52,6 +52,16 @@ Note: It's recommended that you now delete `secrets.json` if you don't need it. 
 - OSX: `brew install srm`
 - Ubuntu: `apt-get install secure-delete`
 
+##### KV to KV-2 migration
+
+If you are exporting from a KV store into a KV-2 store you will need to edit the path in the json file as well by adding `/data/` into the path after the KV-store name.  Using sed:
+
+```shell
+$ sed -i.bak 's~"secret/~secret/data/"~g' secret.json
+```
+
+this should edit all the paths starting in `secret/` into `secret/data/`.  Then import adding `-ver 2` to the command line.
+
 ### Configuration
 
 This tool reads all the `VAULT_*` environment variables as the vault cli does. You likely need to specify those for the address, CA certs, etc.
