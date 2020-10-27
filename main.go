@@ -5,10 +5,6 @@ import (
 	"fmt"
 	"os"
 	"strings"
-	"strconv"
-
-	// This is the http client the Vault API library uses
-	"golang.org/x/net/http2"
 
 	"github.com/niclan/vault-backend-migrator/cmd"
 )
@@ -19,7 +15,6 @@ var (
 	im = flag.String("import", "", "The vault path to import data into")
 	vr = flag.String("ver", "", "KV version")
 	md = flag.String("metadata", "", "Metadata path")
-	to = flag.String("timeout", "", "The http client timeout")
 
 	// Required during export or import
 	file = flag.String("file", "", "The local file location to use")
@@ -33,15 +28,6 @@ const Version = "0.2.1-dev"
 func main() {
 	flag.Parse()
 	
-	if to != nil && *to != "" {
-		i, err := strconv.Atoi(*to)
-		if err != nil {
-			fmt.Println(err)
-			os.Exit(1)
-		}
-		http2.Client.Timeout = i
-	}
-
 	// Import
 	if im != nil && *im != "" {
 		if empty(im, file) {
