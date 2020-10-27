@@ -5,7 +5,9 @@ import (
 	"fmt"
 	"os"
 	"strings"
-	"net/http"
+
+	// This is the http client the Vault API library uses
+	"golang.org/x/net/http2"
 
 	"github.com/niclan/vault-backend-migrator/cmd"
 )
@@ -36,7 +38,7 @@ func main() {
 			fmt.Println(err)
 			os.Exit(1)
 		}
-		http.Client.Timeout = i
+		http2.Client.Timeout = i
 	}
 
 	// Import
