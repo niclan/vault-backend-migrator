@@ -11,8 +11,8 @@ import (
 	"testing"
 	"time"
 
-	commands "github.com/adamdecaf/vault-backend-migrator/cmd"
-	"github.com/adamdecaf/vault-backend-migrator/vault"
+	commands "github.com/niclan/vault-backend-migrator/cmd"
+	"github.com/niclan/vault-backend-migrator/vault"
 )
 
 var (
