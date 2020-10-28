@@ -27,7 +27,7 @@ const Version = "0.2.1-dev"
 
 func main() {
 	flag.Parse()
-	
+
 	// Import
 	if im != nil && *im != "" {
 		if empty(im, file) {

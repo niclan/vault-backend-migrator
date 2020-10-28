@@ -1,6 +1,6 @@
 VERSION := $(shell grep -Eo '(\d\.\d\.\d)(-dev)?' main.go)
 
-.PHONY: build check test mkrel upload
+.PHONY: build check test mkrel upload updatemod
 
 linux: linux_amd64
 linux_amd64:

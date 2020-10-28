@@ -2,9 +2,9 @@ package vault
 
 import (
 	"encoding/base64"
+	"encoding/json"
 	"fmt"
 	"os"
-	"encoding/json"
 
 	"github.com/hashicorp/vault/api"
 )
