@@ -86,7 +86,8 @@ func (v *Vault) Read(path string) map[string]interface{} {
 		case bool:
 			out[k] = base64.StdEncoding.EncodeToString([]byte(fmt.Sprintf("%v", v)))
 		case []interface{}:
-			out[k] = base64.StdEncoding.EncodeToString([]byte(v))
+			// It seems that []byte(v) should work instead of the Sprintf, but it does not
+			out[k] = base64.StdEncoding.EncodeToString([]byte(fmt.Sprintf("%s", v)))
 		case map[string]interface{}:
 			if k == "data" {
 				for x, y := range t {
